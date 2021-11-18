@@ -55,36 +55,11 @@ function validate() {
     error = "";
   }
 
-  if (firstv.value.length < 2) {
-    firstv.focus();
-    error = document.getElementById("Prénom");
-    error.style.display = "block";
+  if (!check.checked) {
+    check.focus();
+    error = document.getElementById("termes");
   }
-
-  if (lastv.value.length < 2) {
-    lastv.focus();
-    error = document.getElementById("Nom");
-    error.style.display = "block";
-  }
-
-  if (!emailv.value.match(mailformat)) {
-    emailv.focus();
-    error = document.getElementById("Mail");
-    error.style.display = "block";
-  }
-
-  if (bday.value.length != 10) {
-    bday.focus();
-    error = document.getElementById("date");
-    error.style.display = "block";
-  }
-
-  if (qtty.value < 0 || qtty.value == "") {
-    qtty.focus();
-    console.log("quant");
-    error = document.getElementById("numb");
-    error.style.display = "block";
-  }
+  
 
   for (var i = 1; i < 7; i++) {
     var loc = document.getElementById('location' + i);
@@ -95,20 +70,43 @@ function validate() {
 
   if (checked != true) {
     error = document.getElementById("loc");
-    error.style.display = "block";
   }
 
-  if (!check.checked) {
-    check.focus();
-    error = document.getElementById("termes");
-    error.style.display = "block";
+  if (qtty.value < 0 || qtty.value == "") {
+    qtty.focus();
+    console.log("quant");
+    error = document.getElementById("numb");
   }
+
+  if (bday.value.length != 10) {
+    bday.focus();
+    error = document.getElementById("date");
+  }
+
+
+  if (!emailv.value.match(mailformat)) {
+    emailv.focus();
+    error = document.getElementById("Mail");
+    
+  }
+
+  if (lastv.value.length < 2) {
+    lastv.focus();
+    error = document.getElementById("Nom");
+  }
+
+  if (firstv.value.length < 2) {
+    firstv.focus();
+    error = document.getElementById("Prénom");
+  }
+
 
   if (error != "") {
+    error.style.display = "block";
     return false
   }
 
   return true
-  
+
 
 }
