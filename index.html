@@ -66,6 +66,7 @@
                   id="first"
                   name="first"
                 /><br>
+                <div class="error" id="Prénom">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</div>
               </div>
 
               <div
@@ -76,19 +77,17 @@
                   type="text"
                   id="last"
                   name="last"
-                /><br>
+                /><br/>
+                <div class="error" id="Nom">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>
               </div>
 
               <div
                 class="formData">
                 <label>E-mail</label><br>
-                <input
-                  class="text-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                  onChange=
-                /><br>
+                <input class="text-control" type="email" id="email" name="email"
+                />
+                <br/>
+                <div class="error" id="Mail">Please enter a valid email adress.</div>
               </div>
 
               <div
@@ -100,12 +99,14 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <div class="error" id="date">Please enter your birthdate</div>
               </div>
 
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity">
+                <div class="error" id="numb">Please enter a number.</div>
               </div>
               <p class="text-label">Quelles villes ?</p>
 
@@ -176,6 +177,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <div class="error" id="loc">Vous devez choisir une option</div>
               </div>
 
               <div
@@ -197,6 +199,7 @@
                   Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
+                <div class="error" id="termes">Vous devez vérifier que vous acceptez les termes et conditions.</div>
               </div>
               <input
                 class="btn-submit"

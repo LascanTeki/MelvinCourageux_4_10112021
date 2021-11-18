@@ -22,6 +22,7 @@ var emailv = document.getElementById("email");
 var bday = document.getElementById("birthdate");
 var qtty = document.getElementById("quantity");
 var check = document.getElementById("checkbox1");
+var error = "";
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -49,54 +50,65 @@ click.addEventListener("click", function (e) {
 
 function validate() {
 
+  if (error != "") {
+    error.style.display = "none";
+    error = "";
+  }
 
   if (firstv.value.length < 2) {
     firstv.focus();
-    console.log(firstv.value);
-    return false
+    error = document.getElementById("Prénom");
+    error.style.display = "block";
   }
 
   if (lastv.value.length < 2) {
     lastv.focus();
-    return false
+    error = document.getElementById("Nom");
+    error.style.display = "block";
   }
 
   if (!emailv.value.match(mailformat)) {
     emailv.focus();
-    return false
+    error = document.getElementById("Mail");
+    error.style.display = "block";
   }
 
   if (bday.value.length != 10) {
     bday.focus();
-    return false
+    error = document.getElementById("date");
+    error.style.display = "block";
   }
 
-  if (qtty < 0) {
+  if (qtty.value < 0 || qtty.value == "") {
     qtty.focus();
     console.log("quant");
-    return false
+    error = document.getElementById("numb");
+    error.style.display = "block";
   }
 
-  for (var i = 1; i<7; i++) {
-    var loc = document.getElementById('location'+i);
-    console.log(i);
+  for (var i = 1; i < 7; i++) {
+    var loc = document.getElementById('location' + i);
     if (loc.checked) {
-      console.log("checked");
       var checked = true;
     }
   }
 
   if (checked != true) {
-    console.log("nochecked");
-    return false
+    error = document.getElementById("loc");
+    error.style.display = "block";
   }
 
-  if (!check.checked){
+  if (!check.checked) {
     check.focus();
-    return false
+    error = document.getElementById("termes");
+    error.style.display = "block";
   }
 
+  if (error != "") {
+    return false
+  }
 
   return true
+  
 
 }
