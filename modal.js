@@ -23,6 +23,7 @@ var bday = document.getElementById("birthdate");
 var qtty = document.getElementById("quantity");
 var check = document.getElementById("checkbox1");
 var error = "";
+var border = "";
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -52,7 +53,9 @@ function validate() {
 
   if (error != "") {
     error.style.display = "none";
+    border.style.border = "none";
     error = "";
+    border = "";
   }
 
   if (!check.checked) {
@@ -74,35 +77,39 @@ function validate() {
 
   if (qtty.value < 0 || qtty.value == "") {
     qtty.focus();
-    console.log("quant");
     error = document.getElementById("numb");
+    border = document.getElementById("quantity");
   }
 
   if (bday.value.length != 10) {
     bday.focus();
     error = document.getElementById("date");
+    border = document.getElementById("birthdate");
   }
 
 
   if (!emailv.value.match(mailformat)) {
     emailv.focus();
     error = document.getElementById("Mail");
-    
+    border = document.getElementById("email");
   }
 
-  if (lastv.value.length < 2) {
+  if (lastv.value.length < 2 || lastv.value.match(/[0-9!@#\$%\^\&*\)\(+=._-]/i)) {
     lastv.focus();
     error = document.getElementById("Nom");
+    border = document.getElementById("last");
   }
 
-  if (firstv.value.length < 2) {
+  if (firstv.value.length < 2 || firstv.value.match(/[0-9!@#\$%\^\&*\)\(+=._-]/i)) {
     firstv.focus();
     error = document.getElementById("Prénom");
+    border = document.getElementById("first");
   }
 
 
   if (error != "") {
     error.style.display = "block";
+    border.style.border = "red 1px solid";
     return false
   }
 
