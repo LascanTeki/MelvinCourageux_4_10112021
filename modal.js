@@ -60,9 +60,11 @@ function validate() {
 
   if (error != "") {
     error.style.display = "none";
-    border.style.border = "none";
     error = "";
-    border = "";
+    if (border != ""){
+      border = "";
+      border.style.border = "none";
+    }
   }
 
   if (!check.checked) {
@@ -115,8 +117,10 @@ function validate() {
 
 
   if (error != "") {
+    if (border != ""){
+      border.style.border = "red 1px solid";
+    }
     error.style.display = "block";
-    border.style.border = "red 1px solid";
     return false
   }
 
