@@ -62,8 +62,8 @@ function validate() {
     error.style.display = "none";
     error = "";
     if (border != ""){
-      border = "";
       border.style.border = "none";
+      border = "";
     }
   }
 
@@ -103,15 +103,27 @@ function validate() {
     border = document.getElementById("email");
   }
 
-  if (lastv.value.length < 2 || lastv.value.match(/[0-9!@#\$%\^\&*\)\(+=._-]/i)) {
+  if (lastv.value.length < 2) {
     lastv.focus();
     error = document.getElementById("Nom");
     border = document.getElementById("last");
   }
 
-  if (firstv.value.length < 2 || firstv.value.match(/[0-9!@#\$%\^\&*\)\(+=._-]/i)) {
+  if (lastv.value.match(/[0-9!@#\$%\^\&*\)\(+=._-]/i)) {
+    lastv.focus();
+    error = document.getElementById("Nomsp");
+    border = document.getElementById("last");
+  }
+
+  if (firstv.value.length < 2) {
     firstv.focus();
     error = document.getElementById("Prénom");
+    border = document.getElementById("first");
+  }
+
+  if (firstv.value.match(/[0-9!@#\$%\^\&*\)\(+=._-]/i)) {
+    firstv.focus();
+    error = document.getElementById("Prénomsp");
     border = document.getElementById("first");
   }
 
