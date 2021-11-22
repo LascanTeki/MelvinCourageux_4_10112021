@@ -9,11 +9,13 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
+const modalbg2 = document.querySelector(".bground2");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeMod = document.querySelectorAll(".close");
 const formData = document.querySelectorAll(".formData");
 const form = document.getElementById("form");
-const click = document.getElementById("button")
+const click = document.getElementById("button");
+const click2 = document.getElementById("button2");
 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 var firstv = document.getElementById("first");
 var lastv = document.getElementById("last");
@@ -39,15 +41,20 @@ closeMod.forEach((close) => close.addEventListener("click", closeModal));
 // close modal
 function closeModal() {
   modalbg.style.display = "none";
+  modalbg2.style.display = "none";
 }
 
 //validation of the form
 
 click.addEventListener("click", function (e) {
   e.preventDefault();
-  validate();
-
+    validate();
 });
+
+click2.addEventListener("click", function (e) {
+  closeModal();
+});
+
 
 function validate() {
 
@@ -62,7 +69,7 @@ function validate() {
     check.focus();
     error = document.getElementById("termes");
   }
-  
+
 
   for (var i = 1; i < 7; i++) {
     var loc = document.getElementById('location' + i);
@@ -113,7 +120,14 @@ function validate() {
     return false
   }
 
+  
+  modalbg2.style.display = "block";
+  modalbg.style.display = "none";
+  form.reset();
   return true
 
-
 }
+
+
+
+

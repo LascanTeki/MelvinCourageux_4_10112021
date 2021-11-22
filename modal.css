@@ -168,7 +168,7 @@ main {
 
 /* Modal form */
 
-.button {
+.button, .button2 {
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -178,7 +178,7 @@ main {
   font-size: 16px;
 }
 
-.button:hover {
+.button:hover, .button2:hover {
   background: #3876ac;
 }
 
@@ -186,7 +186,7 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground, .bground2 {
   display: none;
   position: fixed;
   z-index: 1;
@@ -210,6 +210,14 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+
+.thanks{
+  text-align: center;
+  font-size: xx-large;
+  width: 60%;
+  margin: 250px 40px 250px 80px;
+  font-weight: normal;
 }
 
 .modal-body {
