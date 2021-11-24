@@ -1,17 +1,9 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalbg2 = document.querySelector(".bground2");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeMod = document.querySelectorAll(".close");
+const nav = document.querySelectorAll(".icon");
 const formData = document.querySelectorAll(".formData");
 const form = document.getElementById("form");
 const click = document.getElementById("button");
@@ -26,6 +18,22 @@ var qtty = document.getElementById("quantity");
 var check = document.getElementById("checkbox1");
 var error = "";
 var border = "";
+
+
+//launch navigation closing / opening
+
+nav.forEach((icon) => icon.addEventListener("click", editNav));
+
+
+//make nav bar appear / disapear
+function editNav() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
