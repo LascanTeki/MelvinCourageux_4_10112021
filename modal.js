@@ -44,19 +44,24 @@ function closeModal() {
   modalbg2.style.display = "none";
 }
 
-//validation of the form
+// prevent submit button from normal behavior
 
 click.addEventListener("click", function (e) {
   e.preventDefault();
     validate();
 });
 
+//close modal if button is clicked on confirmation page
+
 click2.addEventListener("click", function (e) {
   closeModal();
 });
 
+//validation of the form
 
 function validate() {
+
+  //reset error and border before checks
 
   if (error != "") {
     error.style.display = "none";
@@ -67,11 +72,14 @@ function validate() {
     }
   }
 
+  //verify agreement to terms and conditions
+
   if (!check.checked) {
     check.focus();
     error = document.getElementById("termes");
   }
 
+  //check if any location is checked
 
   for (var i = 1; i < 7; i++) {
     var loc = document.getElementById('location' + i);
@@ -84,11 +92,15 @@ function validate() {
     error = document.getElementById("loc");
   }
 
+  //make sure there is a quantity of previous competitions
+
   if (qtty.value < 0 || qtty.value == "") {
     qtty.focus();
     error = document.getElementById("numb");
     border = document.getElementById("quantity");
   }
+
+  //Make sure a birthday is entered
 
   if (bday.value.length != 10) {
     bday.focus();
@@ -96,12 +108,15 @@ function validate() {
     border = document.getElementById("birthdate");
   }
 
+  //Make sure the mail is indeed, a mail (a @, letters, the .fr/com/...)
 
   if (!emailv.value.match(mailformat)) {
     emailv.focus();
     error = document.getElementById("Mail");
     border = document.getElementById("email");
   }
+
+  // Make sure the name has more than 2 letters and doesn't have any number or special caracter
 
   if (lastv.value.length < 2) {
     lastv.focus();
@@ -115,6 +130,8 @@ function validate() {
     border = document.getElementById("last");
   }
 
+  // Make sure the first name has more than 2 letters and doesn't have any number or special caracter
+
   if (firstv.value.length < 2) {
     firstv.focus();
     error = document.getElementById("Prénom");
@@ -127,6 +144,7 @@ function validate() {
     border = document.getElementById("first");
   }
 
+  // If there's any error, make it appear, put the red border
 
   if (error != "") {
     if (border != ""){
@@ -136,7 +154,8 @@ function validate() {
     return false
   }
 
-  
+  //If no errors, put on congratulation page and reset the form
+
   modalbg2.style.display = "block";
   modalbg.style.display = "none";
   form.reset();

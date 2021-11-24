@@ -97,6 +97,8 @@ img {
 
 }
 
+/* Made navigation appear in front of the rest of the page instead of pushing it */
+
 @media screen and (max-width: 768px) {
   .topnav.responsive {
     position: relative;
@@ -538,6 +540,8 @@ input[data-error]::after {
 .hero-img {
   grid-column: span 8;
 }
+
+/* Made image not distort itself when changed */
 
 .hero-img img {
   width: 100%;
